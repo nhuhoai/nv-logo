@@ -18,7 +18,7 @@
   </head>
   <body>
     
-    <canvas id="myCanvas" width="4000" height="4000"></canvas>
+    <canvas id="myCanvas" width="5656" height="5656"></canvas>
     
     <script type="text/javascript">
       
@@ -26,6 +26,10 @@
       var ctx = canvas.getContext("2d");
       
       // Letter N
+      ctx.translate(2828, 2828);
+      ctx.rotate(-Math.PI / 4);
+      ctx.translate(-2000, -2000);
+      
       ctx.fillStyle = "#FA0";
       ctx.beginPath();
       ctx.moveTo(   0,    0);
@@ -45,7 +49,6 @@
       ctx.closePath();
       ctx.fill();
       
-      // Letter V
       ctx.fillStyle = "#07F";
       ctx.beginPath();
       ctx.moveTo(3000,    0);

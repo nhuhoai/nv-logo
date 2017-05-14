@@ -12,7 +12,9 @@
       var canvas = document.getElementById("myCanvas");
       var ctx = canvas.getContext("2d");
       
+      //
       // N0
+      //
       
       var x0 = 20;
       var y0 = 20;
@@ -36,7 +38,9 @@
       ctx.closePath();
       ctx.fill();
       
+      //
       // N1
+      //
       
       var x1 = 20;
       var y1 = 450;
@@ -58,6 +62,52 @@
       
       ctx.closePath();
       ctx.fill();
+      
+      //
+      // NV colored
+      //
+      
+      var x2 = 450;
+      var y2 = 20;
+      
+      // Letter N
+      ctx.fillStyle = "#FA0";
+      ctx.beginPath();
+      ctx.moveTo(   0 + x2,    0 + y2);
+      ctx.lineTo(   0 + x2,  400 + y2);
+      ctx.lineTo( 100 + x2,  400 + y2);
+      ctx.lineTo( 100 + x2,    0 + y2);
+      ctx.lineTo(   0 + x2,    0 + y2);
+      
+      ctx.lineTo( 275 + x2,  400 + y2);
+      ctx.lineTo( 400 + x2,  400 + y2);
+      ctx.lineTo( 400 + x2,    0 + y2);
+      ctx.lineTo( 300 + x2,    0 + y2);
+      ctx.lineTo( 300 + x2,  400 + y2);
+      ctx.lineTo( 400 + x2,  400 + y2);
+      ctx.lineTo( 125 + x2,    0 + y2);
+      
+      ctx.closePath();
+      ctx.fill();
+      
+      // Letter V
+      ctx.fillStyle = "#07F";
+      ctx.beginPath();
+      ctx.moveTo( 300 + x2,    0 + y2);
+      ctx.lineTo( 400 + x2,    0 + y2);
+      ctx.lineTo( 400 + x2,  400 + y2);
+      ctx.lineTo( 300 + x2,  400 + y2);
+      ctx.lineTo( 300 + x2,    0 + y2);
+      ctx.lineTo( 300 + x2,  400 + y2);
+      ctx.lineTo( 275 + x2,  400 + y2);
+      ctx.lineTo(   0 + x2,    0 + y2);
+      ctx.lineTo( 125 + x2,    0 + y2);
+      ctx.lineTo( 400 + x2,  400 + y2);
+      ctx.lineTo( 300 + x2,  400 + y2);
+      
+      ctx.closePath();
+      ctx.fill();
+      
       
     </script>
   </body>

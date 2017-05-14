@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>NV logo</title>
+    <style type="text/css">
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <canvas id="myCanvas" width="4000" height="4000"></canvas>
+    
+    <script type="text/javascript">
+      
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      
+      // Letter N
+      ctx.fillStyle = "#FA0";
+      ctx.beginPath();
+      ctx.moveTo(   0,    0);
+      ctx.lineTo(   0, 4000);
+      ctx.lineTo(1000, 4000);
+      ctx.lineTo(1000,    0);
+      ctx.lineTo(   0,    0);
+      
+      ctx.lineTo(2750, 4000);
+      ctx.lineTo(4000, 4000);
+      ctx.lineTo(4000,    0);
+      ctx.lineTo(3000,    0);
+      ctx.lineTo(3000, 4000);
+      ctx.lineTo(4000, 4000);
+      ctx.lineTo(1250,    0);
+      
+      ctx.closePath();
+      ctx.fill();
+      
+      // Letter V
+      ctx.fillStyle = "#07F";
+      ctx.beginPath();
+      ctx.moveTo(3000,    0);
+      ctx.lineTo(4000,    0);
+      ctx.lineTo(4000, 4000);
+      ctx.lineTo(3000, 4000);
+      ctx.lineTo(3000,    0);
+      ctx.lineTo(3000, 4000);
+      ctx.lineTo(2750, 4000);
+      ctx.lineTo(   0,    0);
+      ctx.lineTo(1250,    0);
+      ctx.lineTo(4000, 4000);
+      ctx.lineTo(3000, 4000);
+      
+      ctx.closePath();
+      ctx.fill();
+      
+      canvas.onclick = function() {
+        window.location = canvas.toDataURL("image/png");
+      };
+      
+    </script>
+    
+  </body>
+</html>

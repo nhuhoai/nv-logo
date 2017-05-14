@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Animation demo</title>
+    <style type="text/css">
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <canvas id="myCanvas" width="2000" height="2000"></canvas>
+    
+    <script type="text/javascript">
+      
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      var rotation = 0, xn = 0, yn = 0, xv = 0, yv = 0;
+      
+      function drawLogo() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Letter N
+        ctx.translate(283, 283);
+        ctx.rotate(rotation);
+        ctx.translate(-200, -200);
+
+        ctx.fillStyle = "#FA0";
+        ctx.beginPath();
+        ctx.moveTo(  0 + xn,   0 + yn);
+        ctx.lineTo(  0 + xn, 400 + yn);
+        ctx.lineTo(100 + xn, 400 + yn);
+        ctx.lineTo(100 + xn,   0 + yn);
+        ctx.lineTo(  0 + xn,   0 + yn);
+
+        ctx.lineTo(275 + xn, 400 + yn);
+        ctx.lineTo(400 + xn, 400 + yn);
+        ctx.lineTo(400 + xn,   0 + yn);
+        ctx.lineTo(300 + xn,   0 + yn);
+        ctx.lineTo(300 + xn, 400 + yn);
+        ctx.lineTo(400 + xn, 400 + yn);
+        ctx.lineTo(125 + xn,   0 + yn);
+
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.fillStyle = "#07F";
+        ctx.beginPath();
+        ctx.moveTo(300 + xv,   0 + yv);
+        ctx.lineTo(400 + xv,   0 + yv);
+        ctx.lineTo(400 + xv, 400 + yv);
+        ctx.lineTo(300 + xv, 400 + yv);
+        ctx.lineTo(300 + xv,   0 + yv);
+        ctx.lineTo(300 + xv, 400 + yv);
+        ctx.lineTo(275 + xv, 400 + yv);
+        ctx.lineTo(  0 + xv,   0 + yv);
+        ctx.lineTo(125 + xv,   0 + yv);
+        ctx.lineTo(400 + xv, 400 + yv);
+        ctx.lineTo(300 + xv, 400 + yv);
+
+        ctx.closePath();
+        ctx.fill();
+        
+        ctx.translate(200, 200);
+        ctx.rotate(-rotation);
+        ctx.translate(-283, -283);
+      }
+      
+      setInterval(function() {
+        rotation -= Math.PI / 180;
+        drawLogo();
+      }, 5);
+      
+    </script>
+    
+  </body>
+</html>

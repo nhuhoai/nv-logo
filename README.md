@@ -2,7 +2,7 @@
 
 Create NV logo from html5 canvas
 
-![NV Logo](./src/nv.png =300x)
+<img src="./src/nv.png" width="200" alt="" />
 
 ## Sources
 

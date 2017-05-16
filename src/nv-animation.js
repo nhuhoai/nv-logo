@@ -8,7 +8,6 @@
  *  @details    Require fabric.js library
  */
 
-var test;
 function NV_animation_welcome(id) {
   var container = document.getElementById(id);
   var container_width = container.offsetWidth;
@@ -35,10 +34,7 @@ function NV_animation_welcome(id) {
   canvas.style.position = "absolute";
   canvas.style.top = 0;
   canvas.style.left = (container.offsetWidth / 2) + (container_width - canvas_width) + "px";
-  canvas.style.backgroundColor = "yellow";
-  wrapper.insertBefore(canvas, wrapper.childNodes[0]);
-  
-  alert(canvas_height); alert(logo_size);
+  wrapper.insertBefore(canvas, wrapper.childNodes[0]);  
   
   var N = new fabric.Polygon([
     { x: Math.floor(0 * ratio), y: Math.floor(0 * ratio)},
@@ -61,7 +57,7 @@ function NV_animation_welcome(id) {
     fill: "#FA0",
     originX: 'center',
     originY: 'center',
-    opacity: 1
+    opacity: 0
   });
 
   var V = new fabric.Polygon([
@@ -80,12 +76,56 @@ function NV_animation_welcome(id) {
     { x: Math.floor(300 * ratio), y: Math.floor(400 * ratio)}
   ], {
     top: Math.floor(canvas_height / 2),
-    left: Math.floor(canvas_height / 2),
+    left: Math.floor(canvas_height / 2) + (2 * canvas_height),
     originX: 'center',
     originY: 'center',
     fill: "#07F",
-    opacity: 1
+    opacity: 0
   });
   
   C.add(N, V);
+  
+  N.animate({
+    left: Math.floor(canvas_height / 2) + canvas_height,
+    opacity: 1
+  }, {
+    duration: 1500,
+    onChange: C.renderAll.bind(C),
+    onComplete: function() {
+
+    },
+    easing: fabric.util.ease["easeOutSine"]
+  });
+
+  V.animate({
+    left: Math.floor(canvas_height / 2) + canvas_height,
+    opacity: 1
+  }, {
+    duration: 1500,
+    onChange: C.renderAll.bind(C),
+    onComplete: function() {
+      N.animate({
+        angle: -45
+      }, {
+        duration: 2000,
+        onChange: C.renderAll.bind(C),
+        onComplete: function() {
+
+        },
+        easing: fabric.util.ease["easeOutSine"]
+      });
+
+      V.animate({
+        angle: -45
+      }, {
+        duration: 2000,
+        onChange: C.renderAll.bind(C),
+        onComplete: function() {
+          
+        },
+        easing: fabric.util.ease["easeOutSine"]
+      });
+    },
+    easing: fabric.util.ease["easeOutSine"]
+  });
 }

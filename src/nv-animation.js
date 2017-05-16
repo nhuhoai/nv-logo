@@ -68,6 +68,7 @@ function NV_animation_waiting(id, size) {
 
 function NV_animation_welcome(id) {
   var container = document.getElementById(id);
+  container.style.overflowX = "hidden";
   var container_width = container.offsetWidth;
   if(container_width > 400) {
     container_width = 400;
@@ -82,7 +83,6 @@ function NV_animation_welcome(id) {
   wrapper.style.width = container.offsetWidth + "px";
   wrapper.style.height = (canvas_height + 20) + "px";
   wrapper.style.padding = "10px 0";
-  wrapper.style.overflow = "hidden";
   container.insertBefore(wrapper, container.childNodes[0]);
   
   var canvas = document.createElement("canvas");

@@ -37,52 +37,9 @@ function NV_animation_welcome(id) {
   canvas.style.left = ((container.offsetWidth / 2) - Math.floor(canvas_width / 2)) + "px";
   wrapper.insertBefore(canvas, wrapper.childNodes[0]);  
   
-  var N = new fabric.Polygon([
-    { x: Math.floor(0 * ratio), y: Math.floor(0 * ratio)},
-    { x: Math.floor(0 * ratio), y: Math.floor(400 * ratio)},
-    { x: Math.floor(100 * ratio), y: Math.floor(400 * ratio)},
-    { x: Math.floor(100 * ratio), y: Math.floor(0 * ratio)},
-    
-    { x: Math.floor(0 * ratio), y: Math.floor(0 * ratio)},
-    { x: Math.floor(275 * ratio), y: Math.floor(400 * ratio)},
-    { x: Math.floor(400 * ratio), y: Math.floor(400 * ratio)},
-    { x: Math.floor(400 * ratio), y: Math.floor(0 * ratio)},
-    
-    { x: Math.floor(300 * ratio), y: Math.floor(0 * ratio)},
-    { x: Math.floor(300 * ratio), y: Math.floor(400 * ratio)},
-    { x: Math.floor(400 * ratio), y: Math.floor(400 * ratio)},
-    { x: Math.floor(125 * ratio), y: Math.floor(0 * ratio)}
-  ], {
-    top: Math.floor(canvas_height / 2),
-    left: Math.floor(canvas_height / 2),
-    fill: "#FA0",
-    originX: 'center',
-    originY: 'center',
-    opacity: 0
-  });
+  var N = makeN(ratio, Math.floor(canvas_height / 2), Math.floor(canvas_height / 2), 0);
 
-  var V = new fabric.Polygon([
-    { x: Math.floor(300 * ratio), y: Math.floor(0 * ratio)},
-    { x: Math.floor(400 * ratio), y: Math.floor(0 * ratio)},
-    { x: Math.floor(400 * ratio), y: Math.floor(400 * ratio)},
-    { x: Math.floor(300 * ratio), y: Math.floor(400 * ratio)},
-    
-    { x: Math.floor(300 * ratio), y: Math.floor(0 * ratio)},
-    { x: Math.floor(300 * ratio), y: Math.floor(400 * ratio)},
-    { x: Math.floor(275 * ratio), y: Math.floor(400 * ratio)},
-    { x: Math.floor(0 * ratio), y: Math.floor(0 * ratio)},
-    
-    { x: Math.floor(125 * ratio), y: Math.floor(0 * ratio)},
-    { x: Math.floor(400 * ratio), y: Math.floor(400 * ratio)},
-    { x: Math.floor(300 * ratio), y: Math.floor(400 * ratio)}
-  ], {
-    top: Math.floor(canvas_height / 2),
-    left: Math.floor(canvas_height / 2) + (2 * canvas_height),
-    originX: 'center',
-    originY: 'center',
-    fill: "#07F",
-    opacity: 0
-  });
+  var V = makeV(ratio, Math.floor(canvas_height / 2), Math.floor(canvas_height / 2) + (2 * canvas_height), 0);
   
   C.add(N, V);
   
@@ -128,5 +85,56 @@ function NV_animation_welcome(id) {
       });
     },
     easing: fabric.util.ease["easeOutSine"]
+  });
+}
+
+function makeN(ratio, top, left, opacity) {
+  return new fabric.Polygon([
+    { x: Math.floor(0 * ratio), y: Math.floor(0 * ratio)},
+    { x: Math.floor(0 * ratio), y: Math.floor(400 * ratio)},
+    { x: Math.floor(100 * ratio), y: Math.floor(400 * ratio)},
+    { x: Math.floor(100 * ratio), y: Math.floor(0 * ratio)},
+    
+    { x: Math.floor(0 * ratio), y: Math.floor(0 * ratio)},
+    { x: Math.floor(275 * ratio), y: Math.floor(400 * ratio)},
+    { x: Math.floor(400 * ratio), y: Math.floor(400 * ratio)},
+    { x: Math.floor(400 * ratio), y: Math.floor(0 * ratio)},
+    
+    { x: Math.floor(300 * ratio), y: Math.floor(0 * ratio)},
+    { x: Math.floor(300 * ratio), y: Math.floor(400 * ratio)},
+    { x: Math.floor(400 * ratio), y: Math.floor(400 * ratio)},
+    { x: Math.floor(125 * ratio), y: Math.floor(0 * ratio)}
+  ], {
+    top: top,
+    left: left,
+    fill: "#FA0",
+    originX: 'center',
+    originY: 'center',
+    opacity: opacity
+  });
+}
+
+function makeV(ratio, top, left, opacity) {
+  return new fabric.Polygon([
+    { x: Math.floor(300 * ratio), y: Math.floor(0 * ratio)},
+    { x: Math.floor(400 * ratio), y: Math.floor(0 * ratio)},
+    { x: Math.floor(400 * ratio), y: Math.floor(400 * ratio)},
+    { x: Math.floor(300 * ratio), y: Math.floor(400 * ratio)},
+    
+    { x: Math.floor(300 * ratio), y: Math.floor(0 * ratio)},
+    { x: Math.floor(300 * ratio), y: Math.floor(400 * ratio)},
+    { x: Math.floor(275 * ratio), y: Math.floor(400 * ratio)},
+    { x: Math.floor(0 * ratio), y: Math.floor(0 * ratio)},
+    
+    { x: Math.floor(125 * ratio), y: Math.floor(0 * ratio)},
+    { x: Math.floor(400 * ratio), y: Math.floor(400 * ratio)},
+    { x: Math.floor(300 * ratio), y: Math.floor(400 * ratio)}
+  ], {
+    top: top,
+    left: left,
+    originX: 'center',
+    originY: 'center',
+    fill: "#07F",
+    opacity: opacity
   });
 }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>NV logo animation</title>
+  </head>
+  <body>
+    
+    <canvas id="myCanvas" width="2830" height="566" style="border:solid 1px black;"></canvas>
+    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.11/fabric.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var canvas = new fabric.Canvas("myCanvas");
+      
+      var N = new fabric.Polygon([
+        { x: 0, y: 0 },
+        { x: 0, y: 400 },
+        { x: 100, y: 400 },
+        { x: 100, y: 0 },
+        { x: 0, y: 0 },
+        { x: 275, y: 400 },
+        { x: 400, y: 400 },
+        { x: 400, y: 0 },
+        { x: 300, y: 0 },
+        { x: 300, y: 400 },
+        { x: 400, y: 400 },
+        { x: 125, y: 0 },
+      ], {
+        top: 283,
+        left: 283,
+        fill: "#FA0",
+        originX: 'center',
+        originY: 'center',
+        opacity: 0
+      });
+      
+      var V = new fabric.Polygon([
+        { x: 300, y: 0 },
+        { x: 400, y: 0 },
+        { x: 400, y: 400 },
+        { x: 300, y: 400 },
+        { x: 300, y: 0 },
+        { x: 300, y: 400 },
+        { x: 275, y: 400 },
+        { x: 0, y: 0 },
+        { x: 125, y: 0 },
+        { x: 400, y: 400 },
+        { x: 300, y: 400 }
+      ], {
+        top: 283,
+        left: 2547,
+        fill: "#07F",
+        originX: 'center',
+        originY: 'center',
+        opacity: 0
+      });
+      
+      canvas.add(N, V);
+      
+      anim0();
+      
+      function anim0() {
+        N.animate({
+          left: 1415,
+          opacity: 1
+        }, {
+          duration: 1500,
+          onChange: canvas.renderAll.bind(canvas),
+          onComplete: function() {
+
+          },
+          easing: fabric.util.ease["easeOutSine"]
+        });
+
+        V.animate({
+          left: 1415,
+          opacity: 1
+        }, {
+          duration: 1500,
+          onChange: canvas.renderAll.bind(canvas),
+          onComplete: function() {
+            anim1();
+          },
+          easing: fabric.util.ease["easeOutSine"]
+        });
+      }
+      
+      function anim1() {
+        N.animate({
+          angle: -45
+        }, {
+          duration: 1500,
+          onChange: canvas.renderAll.bind(canvas),
+          onComplete: function() {
+
+          },
+          easing: fabric.util.ease["easeInOutSine"]
+        });
+
+        V.animate({
+          angle: -45
+        }, {
+          duration: 1500,
+          onChange: canvas.renderAll.bind(canvas),
+          onComplete: function() {
+            
+          },
+          easing: fabric.util.ease["easeInOutSine"]
+        });
+      }
+    </script>
+  </body>
+</html>

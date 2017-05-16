@@ -23,6 +23,7 @@ function NV_animation_welcome(id) {
   wrapper.style.position = "relative";
   wrapper.style.width = container.offsetWidth + "px";
   wrapper.style.height = canvas_height + "px";
+  wrapper.style.padding = "10px 0";
   container.insertBefore(wrapper, container.childNodes[0]);
   
   var canvas = document.createElement("canvas");
@@ -32,8 +33,8 @@ function NV_animation_welcome(id) {
   canvas.style.width = canvas_width + "px";
   canvas.style.height = canvas_height + "px";
   canvas.style.position = "absolute";
-  canvas.style.top = 0;
-  canvas.style.left = (container.offsetWidth / 2) + (container_width - canvas_width) + "px";
+  canvas.style.top = "10px";
+  canvas.style.left = ((container.offsetWidth / 2) - Math.floor(canvas_width / 2)) + "px";
   wrapper.insertBefore(canvas, wrapper.childNodes[0]);  
   
   var N = new fabric.Polygon([

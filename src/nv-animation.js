@@ -80,8 +80,9 @@ function NV_animation_welcome(id) {
   var wrapper = document.createElement("div");
   wrapper.style.position = "relative";
   wrapper.style.width = container.offsetWidth + "px";
-  wrapper.style.height = canvas_height + "px";
+  wrapper.style.height = (canvas_height + 20) + "px";
   wrapper.style.padding = "10px 0";
+  wrapper.style.overflow = "hidden";
   container.insertBefore(wrapper, container.childNodes[0]);
   
   var canvas = document.createElement("canvas");
